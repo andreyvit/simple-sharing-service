@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>		
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>			
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/styles/blueprint/screen.css" />
+  <link rel="stylesheet" type="text/css" media="print" href="/static/styles/blueprint/print.css" />
+  <title>{% block title %}Untitled{% endblock %}</title>
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+  <div class="container" style="margin-top: 20px;">
+
+    <div class="column span-16">
+      Простой сайтик
+    </div>
+
+    <div class="column span-8 last">
+      {% if username %}
+      <p>{{ username }} ({{ profile.level_name }}) — <a class="nav" href="{{ logout_url }}">Выйти</a></p>
+      {% else %}
+      <p><a class="nav" href="{{ login_url }}">Войти</a></p>
+      {% endif %}
+    </div>
+
+    <div class="column span-24 last">
+      {% if flash %}
+      <div style="padding: 10px; margin: 10px 0px; background: silver; font-size: bigger;">{{ flash }}</div>
+      {% endif %}
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <div class="column span-24 last" style="text-align: center; font-size: smaller;">
+      &copy; 2008 — <a class="nav" href="mailto:andreyvit@gmail.com">Андрей Таранцов</a>
+    </div>
+  </div>
+</body>	
+</html>

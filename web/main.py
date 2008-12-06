@@ -1,13 +1,15 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import logging
 import wsgiref.handlers
 from google.appengine.ext import webapp
+from google.appengine.ext.webapp import template
 
-class MainHandler(webapp.RequestHandler):
-
-  def get(self):
-    self.response.out.write('Hello world!')
+from ssharings.handlers.index import IndexHandler
 
 url_mapping = [
-    ('/', MainHandler),
+  ('/', IndexHandler),
 ]
 
 def main():
